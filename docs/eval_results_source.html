@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>ClearAnswer eval results</title>
+<style>
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',system-ui,Arial,sans-serif;background:#f5f7fa;padding:28px 34px;color:#1a202c}
+h1{font-size:20px;color:#0e6e6b;margin-bottom:4px}
+.sub{font-size:13px;color:#5a6472;margin-bottom:18px}
+table{border-collapse:separate;border-spacing:0;width:100%;background:#fff;border:1px solid #e2e8f0;
+border-radius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(16,24,40,.06);font-size:13.5px}
+th{background:#eef2f7;color:#5a6472;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+padding:10px 14px;text-align:left;border-bottom:1px solid #e2e8f0}
+td{padding:11px 14px;border-bottom:1px solid #eef1f5}
+tr:last-child td{border-bottom:none}
+td.num{font-family:Consolas,monospace;font-size:13px}
+.arm{font-weight:700}
+.model{font-size:11.5px;color:#5a6472}
+tr.hero{background:#e6f4f3}
+tr.hero td{border-top:2px solid #0e6e6b;border-bottom:2px solid #0e6e6b}
+tr.hero .arm{color:#0e6e6b}
+.best{color:#1a7f37;font-weight:700}
+.takeaway{margin-top:16px;background:#fff;border-left:4px solid #0e6e6b;border-radius:6px;
+padding:12px 16px;font-size:14.5px;line-height:1.5}
+.takeaway b{color:#0e6e6b}
+.foot{margin-top:12px;font-size:11px;color:#8a919c}
+</style></head><body>
+
+<h1>Can a cheap model with frontier-authored skills match the frontier model itself?</h1>
+<div class="sub">Three-arm eval · 10 synthetic EOB cases (4 planted billing errors) · all numbers from live API runs, July 2026 · reproducible: <span style="font-family:Consolas,monospace">python evals/run_evals.py</span></div>
+
+<table>
+<tr><th>Arm</th><th>Line category<br>accuracy</th><th>Must-mention<br>coverage</th><th>Citation<br>groundedness</th><th>Escalation<br>accuracy</th><th>Reading<br>grade</th><th>Cost<br>(10 cases)</th></tr>
+<tr>
+  <td><div class="arm">worker</div><div class="model">Haiku 4.5 alone</div></td>
+  <td class="num">81%</td><td class="num">81%</td><td class="num">100%</td><td class="num">10/10</td><td class="num">8.0</td><td class="num">$0.05</td>
+</tr>
+<tr class="hero">
+  <td><div class="arm">worker + skill pack ← the product</div><div class="model">Haiku 4.5 + skills authored by Fable 5</div></td>
+  <td class="num best">100%</td><td class="num best">85%</td><td class="num">100%</td><td class="num best">10/10</td><td class="num best">7.8</td><td class="num">$0.07</td>
+</tr>
+<tr>
+  <td><div class="arm">teacher</div><div class="model">Claude Fable 5 + skill pack</div></td>
+  <td class="num best">100%</td><td class="num">77%</td><td class="num">100%</td><td class="num">9/10</td><td class="num">8.0</td><td class="num">$1.08</td>
+</tr>
+</table>
+
+<div class="takeaway"><b>The skill pack closed the entire gap.</b> Haiku's line-category accuracy went from 81% to 100% — matching the frontier teacher — while must-mention coverage edged past it, at <b>1/15th the measured cost</b>. The expertise was authored once by the frontier model; the cheap model executes it on every claim.</div>
+
+<div class="foot">Groundedness (verbatim-quote verification) and math-error detection are enforced by deterministic code in every arm — the architecture, not the model, carries them. Small suite: 10 cases, 14–16 gold-labeled lines per arm. github.com/musharraf3/clearanswer</div>
+</body></html>
