@@ -1,0 +1,2 @@
+# None. ClearAnswer is 100% Python standard library — offline demo AND live API
+# mode (which uses urllib directly). Python 3.10+ is all you need.

@@ -1,0 +1,14 @@
+{
+  "eob_id": "eob_07",
+  "one_liner": "Out-of-network ER visit — No Surprises Act keeps cost sharing in-network",
+  "synthetic": true,
+  "member": {"name": "Denise Okafor (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0007"},
+  "provider": "St. Adelaide Regional Medical Center (SYNTHETIC, out-of-network)",
+  "claim_id": "CLM-2026-88617",
+  "oop_used_before": 1600.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-05-30", "cpt": "99284", "description": "Emergency department visit, high severity", "network": "out", "place_of_service": "emergency room",
+     "billed": 2400.0, "allowed": 980.0, "plan_paid": 584.0, "deductible": 0, "copay": 250.0, "coinsurance": 146.0, "not_covered": 0, "co_amount": 1420.0, "patient_resp": 396.0,
+     "codes": ["PR-3", "PR-2", "CO-45"], "remark_codes": [], "deductible_phase": false}
+  ]
+}

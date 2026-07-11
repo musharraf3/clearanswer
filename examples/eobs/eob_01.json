@@ -1,0 +1,17 @@
+{
+  "eob_id": "eob_01",
+  "one_liner": "Annual physical, in-network — clean $0 preventive claim",
+  "synthetic": true,
+  "member": {"name": "Alma Reyes (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0001"},
+  "provider": "Harborview Family Medicine (SYNTHETIC)",
+  "claim_id": "CLM-2026-88101",
+  "oop_used_before": 300.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-06-02", "cpt": "99395", "description": "Preventive annual exam, established patient", "network": "in", "place_of_service": "office",
+     "billed": 320.0, "allowed": 180.0, "plan_paid": 180.0, "deductible": 0, "copay": 0, "coinsurance": 0, "not_covered": 0, "co_amount": 140.0, "patient_resp": 0.0,
+     "codes": ["CO-45"], "remark_codes": [], "deductible_phase": false},
+    {"line_id": "L2", "date_of_service": "2026-06-02", "cpt": "90686", "description": "Influenza vaccine, quadrivalent", "network": "in", "place_of_service": "office",
+     "billed": 62.0, "allowed": 41.0, "plan_paid": 41.0, "deductible": 0, "copay": 0, "coinsurance": 0, "not_covered": 0, "co_amount": 21.0, "patient_resp": 0.0,
+     "codes": ["CO-45"], "remark_codes": [], "deductible_phase": false}
+  ]
+}

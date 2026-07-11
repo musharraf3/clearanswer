@@ -1,0 +1,14 @@
+{
+  "eob_id": "eob_04",
+  "one_liner": "Acupuncture denied as not covered (PR-204) — member liable, appeal rights apply",
+  "synthetic": true,
+  "member": {"name": "Walter Kim (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0004"},
+  "provider": "Meridian Wellness Clinic (SYNTHETIC)",
+  "claim_id": "CLM-2026-88402",
+  "oop_used_before": 2400.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-05-28", "cpt": "97810", "description": "Acupuncture, initial 15 minutes", "network": "in", "place_of_service": "office",
+     "billed": 240.0, "allowed": 240.0, "plan_paid": 0.0, "deductible": 0, "copay": 0, "coinsurance": 0, "not_covered": 240.0, "co_amount": 0, "patient_resp": 240.0,
+     "codes": ["PR-204"], "remark_codes": ["N130"], "deductible_phase": false}
+  ]
+}

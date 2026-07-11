@@ -1,0 +1,17 @@
+{
+  "eob_id": "eob_08",
+  "one_liner": "Surgery with a bundled line (CO-97) — provider cannot bill the bundled service",
+  "synthetic": true,
+  "member": {"name": "Miriam Castellanos (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0008"},
+  "provider": "Pacific Coast Surgery Center (SYNTHETIC)",
+  "claim_id": "CLM-2026-88702",
+  "oop_used_before": 3200.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-06-06", "cpt": "29881", "description": "Knee arthroscopy with meniscectomy", "network": "in", "place_of_service": "ambulatory surgery center",
+     "billed": 6800.0, "allowed": 2900.0, "plan_paid": 2320.0, "deductible": 0, "copay": 0, "coinsurance": 580.0, "not_covered": 0, "co_amount": 3900.0, "patient_resp": 580.0,
+     "codes": ["PR-2", "CO-45"], "remark_codes": [], "deductible_phase": false},
+    {"line_id": "L2", "date_of_service": "2026-06-06", "cpt": "76942", "description": "Ultrasound guidance during procedure", "network": "in", "place_of_service": "ambulatory surgery center",
+     "billed": 450.0, "allowed": 0.0, "plan_paid": 0.0, "deductible": 0, "copay": 0, "coinsurance": 0, "not_covered": 0, "co_amount": 450.0, "patient_resp": 0.0,
+     "codes": ["CO-97"], "remark_codes": [], "deductible_phase": false}
+  ]
+}

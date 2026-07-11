@@ -1,0 +1,14 @@
+{
+  "eob_id": "eob_06",
+  "one_liner": "PLANTED ERROR: 'you owe' is $150 more than the sum of its parts",
+  "synthetic": true,
+  "member": {"name": "Gary Lindqvist (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0006"},
+  "provider": "Cascade Orthopedic Group (SYNTHETIC)",
+  "claim_id": "CLM-2026-88533",
+  "oop_used_before": 1750.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-06-04", "cpt": "20610", "description": "Joint injection, major joint", "network": "in", "place_of_service": "office",
+     "billed": 620.0, "allowed": 310.0, "plan_paid": 198.0, "deductible": 0, "copay": 50.0, "coinsurance": 62.0, "not_covered": 0, "co_amount": 310.0, "patient_resp": 262.0,
+     "codes": ["PR-3", "PR-2", "CO-45"], "remark_codes": [], "deductible_phase": false}
+  ]
+}

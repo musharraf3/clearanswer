@@ -1,0 +1,17 @@
+{
+  "eob_id": "eob_03",
+  "one_liner": "Specialist visit + lab after deductible met — copay and 20% coinsurance",
+  "synthetic": true,
+  "member": {"name": "Priya Natarajan (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0003"},
+  "provider": "Bayview Endocrinology Associates (SYNTHETIC)",
+  "claim_id": "CLM-2026-88310",
+  "oop_used_before": 1900.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-06-09", "cpt": "99214", "description": "Office visit, specialist, moderate complexity", "network": "in", "place_of_service": "office",
+     "billed": 260.0, "allowed": 145.0, "plan_paid": 95.0, "deductible": 0, "copay": 50.0, "coinsurance": 0, "not_covered": 0, "co_amount": 115.0, "patient_resp": 50.0,
+     "codes": ["PR-3", "CO-45"], "remark_codes": [], "deductible_phase": false},
+    {"line_id": "L2", "date_of_service": "2026-06-09", "cpt": "80053", "description": "Comprehensive metabolic panel", "network": "in", "place_of_service": "office lab",
+     "billed": 240.0, "allowed": 120.0, "plan_paid": 96.0, "deductible": 0, "copay": 0, "coinsurance": 24.0, "not_covered": 0, "co_amount": 120.0, "patient_resp": 24.0,
+     "codes": ["PR-2", "CO-45"], "remark_codes": [], "deductible_phase": false}
+  ]
+}

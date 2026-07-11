@@ -1,0 +1,17 @@
+{
+  "eob_id": "eob_05",
+  "one_liner": "PLANTED ERROR: same metabolic panel billed twice on one day",
+  "synthetic": true,
+  "member": {"name": "Rosa Delgado (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0005"},
+  "provider": "Lakeside Imaging Center (SYNTHETIC)",
+  "claim_id": "CLM-2026-88476",
+  "oop_used_before": 2100.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-06-12", "cpt": "80053", "description": "Comprehensive metabolic panel", "network": "in", "place_of_service": "outpatient lab",
+     "billed": 240.0, "allowed": 120.0, "plan_paid": 96.0, "deductible": 0, "copay": 0, "coinsurance": 24.0, "not_covered": 0, "co_amount": 120.0, "patient_resp": 24.0,
+     "codes": ["PR-2", "CO-45"], "remark_codes": [], "deductible_phase": false},
+    {"line_id": "L2", "date_of_service": "2026-06-12", "cpt": "80053", "description": "Comprehensive metabolic panel", "network": "in", "place_of_service": "outpatient lab",
+     "billed": 240.0, "allowed": 120.0, "plan_paid": 96.0, "deductible": 0, "copay": 0, "coinsurance": 24.0, "not_covered": 0, "co_amount": 120.0, "patient_resp": 24.0,
+     "codes": ["PR-2", "CO-45"], "remark_codes": [], "deductible_phase": false}
+  ]
+}

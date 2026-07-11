@@ -1,0 +1,14 @@
+{
+  "eob_id": "eob_09",
+  "one_liner": "PLANTED ERROR: coinsurance charged past the $6,500 out-of-pocket maximum",
+  "synthetic": true,
+  "member": {"name": "Earl Thompson (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0009"},
+  "provider": "Bayview Infusion Center (SYNTHETIC)",
+  "claim_id": "CLM-2026-88790",
+  "oop_used_before": 6300.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-06-10", "cpt": "96413", "description": "Chemotherapy infusion, first hour", "network": "in", "place_of_service": "outpatient infusion",
+     "billed": 3900.0, "allowed": 1750.0, "plan_paid": 1400.0, "deductible": 0, "copay": 0, "coinsurance": 350.0, "not_covered": 0, "co_amount": 2150.0, "patient_resp": 350.0,
+     "codes": ["PR-2", "CO-45"], "remark_codes": [], "deductible_phase": false}
+  ]
+}

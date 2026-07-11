@@ -1,0 +1,63 @@
+{
+  "_note": "Human-authored gold labels. 'lines' maps line_id to the list of acceptable categories (first = preferred). 'must_mention' is a list of concepts; each concept is a list of acceptable surface forms, matched case-insensitively across summary + explanations + actions.",
+  "eob_01": {
+    "lines": {"L1": ["preventive", "paid_in_full"], "L2": ["preventive", "paid_in_full"]},
+    "expected_flags": [],
+    "must_mention": [["$0", "nothing", "no cost", "owe zero"], ["preventive"]],
+    "expected_escalate": false
+  },
+  "eob_02": {
+    "lines": {"L1": ["deductible"]},
+    "expected_flags": [],
+    "must_mention": [["deductible"], ["1,500", "1500"], ["written off", "write-off", "writes off", "never owe", "not owe"]],
+    "expected_escalate": false
+  },
+  "eob_03": {
+    "lines": {"L1": ["copay"], "L2": ["coinsurance"]},
+    "expected_flags": [],
+    "must_mention": [["copay"], ["20%"], ["allowed"]],
+    "expected_escalate": false
+  },
+  "eob_04": {
+    "lines": {"L1": ["denial_not_covered"]},
+    "expected_flags": [],
+    "must_mention": [["appeal"], ["180"], ["not covered", "not a covered"]],
+    "expected_escalate": false
+  },
+  "eob_05": {
+    "lines": {"L1": ["possible_error", "coinsurance"], "L2": ["possible_error"]},
+    "expected_flags": ["duplicate_line"],
+    "must_mention": [["duplicate", "twice", "two times"], ["itemized"]],
+    "expected_escalate": true
+  },
+  "eob_06": {
+    "lines": {"L1": ["possible_error"]},
+    "expected_flags": ["line_arithmetic"],
+    "must_mention": [["does not add up", "doesn't add up", "does not match", "doesn't match", "mismatch", "more than the", "higher than"], ["do not pay", "don't pay", "before paying", "until this is resolved"]],
+    "expected_escalate": true
+  },
+  "eob_07": {
+    "lines": {"L1": ["nsa_protected"]},
+    "expected_flags": [],
+    "must_mention": [["no surprises", "surprise"], ["in-network cost", "in network cost", "in-network share", "in-network amounts", "in-network benefit"], ["balance bill"]],
+    "expected_escalate": false
+  },
+  "eob_08": {
+    "lines": {"L1": ["coinsurance"], "L2": ["bundled"]},
+    "expected_flags": [],
+    "must_mention": [["bundled", "included in"], ["cannot bill", "can't bill", "cannot separately bill", "not bill you"]],
+    "expected_escalate": false
+  },
+  "eob_09": {
+    "lines": {"L1": ["possible_error"]},
+    "expected_flags": ["oop_max"],
+    "must_mention": [["out-of-pocket maximum", "out of pocket maximum"], ["6,500", "6500"], ["plan's responsibility", "plan pays", "not yours", "not your responsibility"]],
+    "expected_escalate": true
+  },
+  "eob_10": {
+    "lines": {"L1": ["possible_error", "timely_filing_writeoff"]},
+    "expected_flags": ["co_group_billing"],
+    "must_mention": [["provider's error", "provider error", "provider's responsibility", "not your responsibility", "not yours", "not liable"], ["dispute"], ["deadline", "late", "timely filing", "filed too late"]],
+    "expected_escalate": true
+  }
+}

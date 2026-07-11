@@ -1,0 +1,14 @@
+{
+  "eob_id": "eob_02",
+  "one_liner": "Knee MRI before deductible met — full allowed amount to deductible",
+  "synthetic": true,
+  "member": {"name": "Devon Marsh (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0002"},
+  "provider": "Lakeside Imaging Center (SYNTHETIC)",
+  "claim_id": "CLM-2026-88245",
+  "oop_used_before": 200.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-05-14", "cpt": "73721", "description": "MRI, lower extremity joint, without contrast", "network": "in", "place_of_service": "outpatient imaging",
+     "billed": 1800.0, "allowed": 850.0, "plan_paid": 0.0, "deductible": 850.0, "copay": 0, "coinsurance": 0, "not_covered": 0, "co_amount": 950.0, "patient_resp": 850.0,
+     "codes": ["PR-1", "CO-45"], "remark_codes": [], "deductible_phase": true}
+  ]
+}

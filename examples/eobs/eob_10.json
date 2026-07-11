@@ -1,0 +1,14 @@
+{
+  "eob_id": "eob_10",
+  "one_liner": "PLANTED ERROR: provider's late-filing write-off (CO-29) shifted into the member's column",
+  "synthetic": true,
+  "member": {"name": "Alma Reyes (SYNTHETIC)", "plan": "Sunrise Health PPO (SYNTHETIC)", "member_id": "SYN-EOB-0010"},
+  "provider": "Northgate Physical Therapy (SYNTHETIC)",
+  "claim_id": "CLM-2026-88855",
+  "oop_used_before": 900.0,
+  "lines": [
+    {"line_id": "L1", "date_of_service": "2026-01-22", "cpt": "97110", "description": "Therapeutic exercises, 15 minutes", "network": "in", "place_of_service": "office",
+     "billed": 190.0, "allowed": 95.0, "plan_paid": 0.0, "deductible": 0, "copay": 0, "coinsurance": 0, "not_covered": 95.0, "co_amount": 95.0, "patient_resp": 95.0,
+     "codes": ["CO-29"], "remark_codes": [], "deductible_phase": false}
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "_note": "Sunrise Health PPO is a fictional plan. This synthetic benefits summary exists so the demo has controllable ground truth. Structure mirrors a real Summary of Benefits and Coverage.",
+  "facts": {
+    "plan_name": "Sunrise Health PPO (SYNTHETIC)",
+    "deductible_individual": 1500.0,
+    "coinsurance_rate_in_network": 0.20,
+    "oop_max_individual": 6500.0,
+    "copay_pcp": 25.0,
+    "copay_specialist": 50.0,
+    "copay_er": 250.0,
+    "preventive_cpts": ["99395", "G0439", "90686", "77067"]
+  },
+  "chunks": [
+    {"id": "PLAN-DED", "title": "Your deductible", "text": "You pay the first $1,500 of allowed charges each calendar year before the plan begins sharing costs for most services. Amounts applied to the deductible count toward your out-of-pocket maximum."},
+    {"id": "PLAN-COINS", "title": "Your coinsurance", "text": "After you meet the deductible, the plan pays 80% of the allowed amount for in-network care and you pay 20% coinsurance. Coinsurance is always calculated on the allowed amount, never on the provider's billed charge."},
+    {"id": "PLAN-OOP", "title": "Your out-of-pocket maximum", "text": "Your out-of-pocket maximum is $6,500 per individual per year. Once your deductible, copays, and coinsurance reach $6,500, the plan pays 100% of allowed charges for covered in-network services for the rest of the year."},
+    {"id": "PLAN-COPAY", "title": "Your copays", "text": "Office visit copays are $25 for primary care and $50 for specialists. The emergency room copay is $250, waived if you are admitted to the hospital. Copays apply even before the deductible is met."},
+    {"id": "PLAN-PREV", "title": "Preventive care costs you nothing in-network", "text": "In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services."},
+    {"id": "PLAN-ER", "title": "Emergency care", "text": "Emergency services are covered at the in-network benefit level no matter which hospital treats you. After the $250 ER copay, the plan pays 80% of the allowed amount and you pay 20% coinsurance, subject to the deductible."},
+    {"id": "PLAN-NET", "title": "In-network vs out-of-network", "text": "In-network providers accept the plan's allowed amount as payment in full, minus your share. Out-of-network providers have not agreed to our rates and may bill you the difference, except where federal or state surprise-billing protections apply."},
+    {"id": "PLAN-AUTH", "title": "Services that need approval first", "text": "Advanced imaging such as MRI and CT, planned inpatient admissions, and certain outpatient surgeries require prior authorization. Emergency care never requires prior authorization."}
+  ]
+}

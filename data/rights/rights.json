@@ -1,0 +1,12 @@
+{
+  "_note": "Consumer-rights summaries written for this project. Simplified and educational; not legal advice.",
+  "chunks": [
+    {"id": "RIGHT-NOT-A-BILL", "title": "An EOB is not a bill", "text": "An Explanation of Benefits is a statement from your plan showing how a claim was processed. It is not a bill. Wait for the provider's actual bill, then compare it line by line against the EOB before paying anything."},
+    {"id": "RIGHT-ITEMIZED", "title": "You can demand an itemized bill", "text": "You have the right to request a fully itemized bill from any provider, listing every service with its billing code and charge. Itemized bills are the fastest way to catch duplicate charges and services you never received."},
+    {"id": "RIGHT-APPEAL-INT", "title": "Internal appeal", "text": "If your plan denies a claim, you have the right to an internal appeal. You generally have at least 180 days from the denial notice to file, and the plan must give you its decision within set timeframes. The denial notice must explain how to appeal."},
+    {"id": "RIGHT-APPEAL-EXT", "title": "External review", "text": "If the internal appeal upholds the denial, you can request an independent external review by a reviewer outside your insurance company, and the plan must follow the external reviewer's decision. Denials for medical necessity are commonly overturned at this stage."},
+    {"id": "RIGHT-NSA-ER", "title": "No Surprises Act — emergencies", "text": "Under the federal No Surprises Act, emergency care must be covered at your in-network cost-sharing level even if the hospital or doctors are out-of-network, and those providers are prohibited from balance billing you beyond your in-network share."},
+    {"id": "RIGHT-NSA-FACILITY", "title": "No Surprises Act — out-of-network providers at in-network facilities", "text": "When you receive care at an in-network facility, certain providers you did not choose, such as anesthesiologists, radiologists, and pathologists, cannot balance bill you beyond your in-network cost sharing, unless you were given notice and signed a consent form in advance."},
+    {"id": "RIGHT-COLLECTIONS", "title": "Do not panic about collections", "text": "Do not pay a disputed amount just to make it go away. Ask the provider to hold the account from collections while the plan reprocesses the claim or an appeal is pending, and keep notes of every call, including the date and the representative's name."}
+  ]
+}
