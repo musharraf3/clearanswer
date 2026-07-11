@@ -1,0 +1,82 @@
+{
+  "eob_id": "eob_04",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "Your plan denied the acupuncture visit on May 28, 2026, because acupuncture is not a covered benefit under your plan. The EOB shows you are responsible for the $240.00 allowed amount. Remember: this EOB is not a bill. You have the right to appeal this decision if you believe the service should be covered.",
+  "total_you_owe": 240.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "denial_not_covered",
+      "explanation": "You owe $240.00 for this acupuncture visit, the full allowed amount shown on the EOB. The plan used code PR-204, which means acupuncture is not a benefit your plan pays for: 'PR-204 means this service is not a covered benefit under your plan, so the full allowed amount is your responsibility.' This is not the end of the road. The same rule says: 'You have the right to appeal if you believe the service should be covered, starting with an internal appeal.' The plan also added remark N130, which is a pointer, not an error: 'Remark code N130 directs you to review your plan's benefit documents for the rules that apply to this service.' Check your plan booklet to confirm whether acupuncture is excluded, and how many days you have to file an appeal (the exact appeal deadline is not stated in the passages I have).",
+      "you_owe": 240.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-204",
+          "quote": "PR-204 means this service is not a covered benefit under your plan, so the full allowed amount is your responsibility.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-204",
+          "quote": "You have the right to appeal if you believe the service should be covered, starting with an internal appeal.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-N130",
+          "quote": "Remark code N130 directs you to review your plan's benefit documents for the rules that apply to this service.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-204",
+          "score": 6.707,
+          "matched_terms": [
+            "204",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-N130",
+          "score": 4.571,
+          "matched_terms": [
+            "n130"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Do not pay Meridian Wellness Clinic yet. Wait for their actual bill, then compare it line by line to this EOB before paying anything.",
+    "Check your Sunrise Health PPO benefit booklet (or the member portal) for the acupuncture rules, as remark N130 directs, and note the appeal filing deadline.",
+    "If you believe acupuncture should be covered \u2014 for example, if your booklet lists it as a benefit \u2014 start an internal appeal with the plan in writing, referencing claim CLM-2026-88402.",
+    "Call the member services number on your insurance card and ask exactly how many days you have to file the internal appeal, since that deadline is not shown on this EOB."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3492,
+    "output_tokens": 1545
+  }
+}

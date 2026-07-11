@@ -1,0 +1,136 @@
+{
+  "eob_id": "eob_03",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "This is not a bill \u2014 it explains what your plan paid for your specialist visit and lab work on June 9, 2026. Both services were covered in-network. The document shows a $50 copay (a fixed fee) for the specialist visit and $24 coinsurance (your percentage share) for the lab panel. No errors were found in the math on this EOB. Compare any bill from Bayview Endocrinology to these amounts before paying.",
+  "total_you_owe": null,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "copay",
+      "explanation": "You owe $50 for this specialist office visit. That is your plan's fixed specialist copay \u2014 PR-3 means \"this amount is a copay, a fixed dollar amount for a covered visit or service\" [CODE-PR-3], and your plan sets specialist copays at $50 [PLAN-COPAY]. Good news on the rest: the provider billed $260, but the plan's approved price was $145. The $115 difference is a CO-45 write-off (the discount your provider agreed to), and \"Members do not owe CO-45 amounts for in-network care\" [CODE-CO-45]. The plan paid $95.",
+      "you_owe": 50.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service.",
+          "verified": true
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "quote": "Office visit copays are $25 for primary care and $50 for specialists.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 10.456,
+          "matched_terms": [
+            "3",
+            "pr",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 8.306,
+          "matched_terms": [
+            "office",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 6.943,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "coinsurance",
+      "explanation": "You owe $24 for this blood test (comprehensive metabolic panel). That is your coinsurance \u2014 your percentage share of the plan's allowed amount of $120, not of the $240 billed charge. PR-2 means \"this amount is coinsurance, your percentage share of the allowed amount after the deductible is met\" [CODE-PR-2]. The plan paid $96. The $120 gap between the billed charge and the approved price is a CO-45 write-off (the provider's agreed discount): \"The difference is written off by the provider\" [CODE-CO-45] \u2014 you never owe that part.",
+      "you_owe": 24.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Keep this EOB and wait for the bill from Bayview Endocrinology Associates before paying anything \u2014 an EOB is not a bill.",
+    "When the provider's bill arrives, verify it matches this EOB: $50 for the June 9 office visit (CPT 99214) and $24 for the lab panel (CPT 80053), and nothing more.",
+    "If the bill asks for more than these amounts \u2014 especially any part of the write-off amounts ($115 or $120) \u2014 call the billing office and point to this EOB, since those are provider write-offs you do not owe."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 4250,
+    "output_tokens": 1323
+  }
+}

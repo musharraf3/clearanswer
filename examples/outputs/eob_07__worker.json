@@ -1,0 +1,179 @@
+{
+  "eob_id": "eob_07",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "You had an emergency room visit on May 30, 2026, at St. Adelaide Regional Medical Center (out-of-network). Because of the No Surprises Act, you are protected and pay the same cost-sharing (copay and coinsurance) as if the provider were in-network. Your plan paid $584. You owe $396 in total: a $250 emergency room copay and $146 in coinsurance (your percentage share of the allowed amount).",
+  "total_you_owe": 396,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "copay",
+      "explanation": "You owe a $250 copay for this emergency room visit. [CODE-PR-3: \"PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service.\"] [PLAN-COPAY: \"The emergency room copay is $250, waived if you are admitted to the hospital.\"] You were not admitted, so the copay applies.",
+      "you_owe": 250,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service.",
+          "verified": true
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "quote": "The emergency room copay is $250, waived if you are admitted to the hospital.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 13.196,
+          "matched_terms": [
+            "3",
+            "pr",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 10.343,
+          "matched_terms": [
+            "emergency",
+            "room",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 9.909,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L1",
+      "category": "coinsurance",
+      "explanation": "You owe $146 in coinsurance. [CODE-PR-2: \"PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.\"] After your copay, you pay this percentage of the allowed amount ($980). The plan paid the rest.",
+      "you_owe": 146,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 13.196,
+          "matched_terms": [
+            "3",
+            "pr",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 10.343,
+          "matched_terms": [
+            "emergency",
+            "room",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 9.909,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "The provider billed $2,400, but the allowed amount (the maximum the plan recognizes) is $980. The difference of $1,420 is marked CO-45. [CODE-CO-45: \"CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.\"] Because this is an out-of-network emergency, the No Surprises Act applies\u2014you should not owe the $1,420 overage. Verify with the provider that they are not billing you for this difference.",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 13.196,
+          "matched_terms": [
+            "3",
+            "pr",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 10.343,
+          "matched_terms": [
+            "emergency",
+            "room",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 9.909,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Review this EOB to confirm the plan paid $584 and your cost-sharing ($250 copay + $146 coinsurance = $396 total) matches.",
+    "Before paying any provider bill, verify that the provider is not asking you to pay the $1,420 overage (marked CO-45). Under the No Surprises Act, this amount should be written off.",
+    "Keep this EOB with your records in case the provider attempts to bill you for amounts outside your cost-sharing."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1269,
+    "output_tokens": 959
+  }
+}

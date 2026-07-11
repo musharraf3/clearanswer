@@ -1,0 +1,92 @@
+{
+  "eob_id": "eob_07",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "This EOB (not a bill) is for your emergency room visit on May 30, 2026 at St. Adelaide Regional Medical Center. The hospital billed $2,400, but the plan's approved price was $980. The plan paid $584. The EOB shows $396 as your share: a $250 ER copay plus $146 coinsurance. Because this was emergency care at an out-of-network hospital, special federal protections likely apply, but the document explaining that protection was not available to me, so I am flagging this for a human specialist to confirm you are not overcharged.",
+  "total_you_owe": 396.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "nsa_protected",
+      "explanation": "The EOB shows you owe $396 for this ER visit. That is made of two parts. First, a $250 copay \u2014 code PR-3 'means this amount is a copay, a fixed dollar amount for a covered visit or service' [CODE-PR-3], and your plan says 'The emergency room copay is $250, waived if you are admitted to the hospital' [PLAN-COPAY]. So if you were admitted, this copay should be removed. Second, $146 coinsurance \u2014 code PR-2 'means this amount is coinsurance, your percentage share of the allowed amount' [CODE-PR-2]. The good news: the $1,420 gap between the $2,400 charge and the plan's $980 approved price carries code CO-45, where 'The difference is written off by the provider' [CODE-CO-45] \u2014 you should not owe that part. One important note: this was emergency care at an out-of-network hospital. Federal law usually gives you strong protections here, but I was not given the passage that explains that right, so I cannot quote it. A human specialist should confirm your $396 share matches in-network emergency rules and that the hospital cannot bill you for more.",
+      "you_owe": 396.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service.",
+          "verified": true
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "quote": "The emergency room copay is $250, waived if you are admitted to the hospital.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "The difference is written off by the provider.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 13.196,
+          "matched_terms": [
+            "3",
+            "pr",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 10.343,
+          "matched_terms": [
+            "emergency",
+            "room",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 9.909,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Do not pay anything yet. Wait for the hospital's actual bill, then compare it to this EOB \u2014 the member share shown here is $396, and the bill should not ask for more.",
+    "If you were admitted to the hospital from the ER, call Sunrise Health member services (number on your ID card) and ask them to remove the $250 copay, since your plan waives it when you are admitted.",
+    "Call Sunrise Health member services and ask them to confirm that federal emergency-care protections were applied to this out-of-network ER claim, so the hospital cannot bill you for the difference.",
+    "If St. Adelaide Regional Medical Center sends a bill for more than $396, do not pay it \u2014 dispute it in writing and contact your plan."
+  ],
+  "escalate": true,
+  "escalate_reason": "This is an out-of-network emergency claim where No Surprises Act protections should apply, but the retrieved passages did not include the document covering emergency-care member rights, so the protection could not be cited or verified.",
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3517,
+    "output_tokens": 1992
+  }
+}

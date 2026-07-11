@@ -1,0 +1,57 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<title>ClearAnswer — eob_06</title><style>
+:root{--ink:#1a202c;--sub:#5a6472;--line:#e2e8f0;--brand:#0e6e6b;--brand-lt:#e6f4f3;
+--ok:#1a7f37;--ok-bg:#e8f5ec;--warn:#9a6700;--warn-bg:#fff8e5;--err:#b42318;--err-bg:#fdecea;
+--chip:#eef2f7}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;color:var(--ink);
+background:#f5f7fa;padding:28px;line-height:1.55}
+.wrap{max-width:880px;margin:0 auto}
+header{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+header h1{font-size:26px;color:var(--brand)}
+header .tag{color:var(--sub);font-size:13px}
+.banner{background:var(--brand-lt);border:1px solid var(--brand);color:var(--brand);
+border-radius:10px;padding:10px 16px;font-weight:600;margin:14px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+margin:14px 0;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.card h2{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--sub);
+margin-bottom:10px}
+.summary{font-size:17px}
+.finding{border-left:4px solid;border-radius:6px;padding:10px 14px;margin:8px 0;font-size:14px}
+.finding.error{border-color:var(--err);background:var(--err-bg)}
+.finding.warning{border-color:var(--warn);background:var(--warn-bg)}
+.finding.info{border-color:var(--sub);background:var(--chip)}
+.finding .nums{font-family:Consolas,monospace;font-size:13px;color:var(--sub)}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
+padding:2px 9px;border-radius:999px;text-transform:uppercase}
+.badge.code{background:#102a43;color:#fff}
+.badge.cat{background:var(--chip);color:var(--ink)}
+.badge.err{background:var(--err-bg);color:var(--err)}
+.badge.ok{background:var(--ok-bg);color:var(--ok)}
+.line-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.owe{font-size:20px;font-weight:700}
+.cite{background:#fafbfc;border:1px solid var(--line);border-radius:8px;padding:8px 12px;
+margin:8px 0 0;font-size:13.5px}
+.cite .src{color:var(--brand);font-weight:600}
+.cite .q{font-style:italic;color:var(--sub)}
+.retr{font-size:12.5px;color:var(--sub);margin-top:8px;font-family:Consolas,monospace}
+.retr .bar{display:inline-block;height:8px;background:var(--brand);border-radius:4px;
+vertical-align:middle;margin-right:6px}
+.actions li{margin:6px 0 6px 4px}
+.escalate{background:var(--warn-bg);border:1.5px solid var(--warn);color:var(--warn);
+border-radius:10px;padding:12px 16px;font-weight:600;margin:14px 0}
+footer{color:var(--sub);font-size:12.5px;margin-top:18px;border-top:1px solid var(--line);
+padding-top:12px}
+.gg{font-weight:600}
+</style></head><body><div class="wrap">
+<header><h1>ClearAnswer</h1><span class="tag">glass-box EOB decoder ·
+claim CLM-2026-88533 · claude-haiku-4-5-20251001 · arm: worker+skill</span></header>
+<div class="banner">This is an explanation of your EOB. An EOB is <u>not a bill</u> —
+compare it with your provider's bill before paying anything.</div>
+<div class="card"><h2>In plain English</h2><p class="summary">This EOB shows a joint injection that the plan partially covered, but there is a math error in your &#x27;you owe&#x27; column. The document says you owe $262, but when we add up the copay ($50) and coinsurance ($62), that totals only $112. We need the plan to explain the extra $150.</p></div><div class="card"><h2>Math check <span class="badge code">computed in code — not by AI</span></h2><div class="finding error"><b>line_arithmetic</b> · line L1<div>The &#x27;you owe&#x27; amount does not equal deductible + copay + coinsurance + not-covered for this line. Ask the plan to re-explain this amount.</div><div class="nums">expected $112.00 · shown $262.00</div></div></div><div class="card"><div class="line-head">
+<div><span class="badge cat">possible error</span>
+<b> L1</b></div><div class="owe">you owe —</div></div>
+<p style="margin-top:8px">You received a joint injection on June 4, 2026. The provider billed $620, but the plan&#x27;s allowed amount is $310. The plan paid $198 of that. You owe a $50 copay [CODE-PR-3: &quot;a fixed dollar amount for a covered visit or service&quot;] and $62 coinsurance [CODE-PR-2: &quot;your percentage share of the allowed amount after the deductible is met&quot;]. That adds up to $112. However, this EOB says you owe $262 — a difference of $150. The remaining $310 difference between the bill and the allowed amount is written off by the provider [CODE-CO-45: &quot;the difference is written off by the provider. Members do not owe CO-45 amounts for in-network care&quot;], so you never owe that. The $150 discrepancy must be resolved before you pay any bill from this provider.</p><div class="cite"><span class="src">[CODE-PR-3] PR-3 — Copayment</span> <span class="badge ok">verified</span><div class="q">“a fixed dollar amount for a covered visit or service”</div></div><div class="cite"><span class="src">[CODE-PR-2] PR-2 — Coinsurance</span> <span class="badge ok">verified</span><div class="q">“your percentage share of the allowed amount after the deductible is met”</div></div><div class="cite"><span class="src">[CODE-CO-45] CO-45 — Charge exceeds contracted rate</span> <span class="badge ok">verified</span><div class="q">“Members do not owe CO-45 amounts for in-network care”</div></div><div class="retr"><b>why these sources (retrieval scores):</b><div><span class="bar" style="width:70px"></span>CODE-PR-3 · BM25 10.276 · matched: 3, pr</div><div><span class="bar" style="width:67px"></span>CODE-PR-2 · BM25 9.909 · matched: 2, pr</div><div><span class="bar" style="width:49px"></span>CODE-CO-45 · BM25 7.336 · matched: 45, co</div></div></div><div class="card"><h2>What to do next</h2><ol class="actions"><li>Do not pay any bill from Cascade Orthopedic Group for this claim until the math error is resolved.</li><li>Call Sunrise Health&#x27;s customer service line (number on the back of your plan card) and provide claim ID CLM-2026-88533. Ask them to explain why the &#x27;you owe&#x27; column shows $262 when the copay ($50) + coinsurance ($62) totals only $112.</li><li>Once the plan responds, compare their explanation to the provider&#x27;s bill before paying anything.</li></ol></div><div class="escalate">⚠ Human hand-off recommended: Math error detected by deterministic code: the &#x27;you owe&#x27; amount ($262) does not match the sum of copay + coinsurance + deductible + not-covered charges ($112). The difference of $150 cannot be tied to any plan rule or code definition in the retrieved passages. A human must reconcile this discrepancy before the member can be advised what to pay.</div><footer><span class="gg">Groundedness guard: 3/3 citations verified verbatim against their cited sources.</span>
+Retrieval, math, and citation checks are deterministic code — inspect them in the repo.
+ClearAnswer explains documents; it does not give billing, legal, or medical advice.
+All data on this page is synthetic.</footer></div></body></html>

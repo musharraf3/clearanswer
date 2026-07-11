@@ -1,0 +1,135 @@
+{
+  "eob_id": "eob_03",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "summary": "This EOB shows a specialist visit and lab work done on the same day at an in-network provider. Your deductible was already met. You owe $50 for the specialist visit (a fixed copay) and $24 for the lab (your 20% share of the allowed price). The provider agreed to accept less than they billed, and that difference is written off \u2014 you don't owe it.",
+  "total_you_owe": 74,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "copay",
+      "explanation": "You owe $50 for this specialist office visit. That is your copay, a fixed dollar amount [CODE-PR-3: \"PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service\"]. Your plan charges $50 for specialist visits [PLAN-COPAY: \"Office visit copays are $25 for primary care and $50 for specialists\"]. The provider billed $260, but your plan's allowed amount is $145. The plan paid $95, and you pay the $50 copay. The remaining $115 is written off by the provider [CODE-CO-45: \"CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care\"] \u2014 you never owe that part.",
+      "you_owe": 50,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service",
+          "verified": true
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "quote": "Office visit copays are $25 for primary care and $50 for specialists",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 10.456,
+          "matched_terms": [
+            "3",
+            "pr",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 8.306,
+          "matched_terms": [
+            "office",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 6.943,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "coinsurance",
+      "explanation": "You owe $24 for this lab test. That is your coinsurance \u2014 your percentage share of the plan's allowed amount [CODE-PR-2: \"PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met\"]. The plan's allowed amount is $120. The plan paid $96 (80%), and you pay $24 (20%). The provider billed $240, but the difference between that and the $120 allowed amount ($120) is written off by the provider [CODE-CO-45: \"CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care\"] \u2014 you never owe that part.",
+      "you_owe": 24,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Verify the provider's bill matches this EOB before paying anything. Compare the amounts the provider claims you owe to the totals shown here ($50 for the visit, $24 for the lab).",
+    "If the provider's bill includes the $115 or $120 writeoff amounts (CO-45), contact their billing office in writing to dispute it \u2014 those are the provider's responsibility, not yours."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3301,
+    "output_tokens": 1017
+  }
+}

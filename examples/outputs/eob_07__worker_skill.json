@@ -1,0 +1,90 @@
+{
+  "eob_id": "eob_07",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "summary": "You had an emergency room visit on May 30, 2026, at an out-of-network hospital. Because this was emergency care, federal law (the No Surprises Act) protects you: your cost sharing stays at in-network levels. You owe $396 total\u2014a $250 copay plus $146 coinsurance. The hospital cannot bill you for the $1,420 difference between what they charged and what the plan allows.",
+  "total_you_owe": 396.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "nsa_protected",
+      "explanation": "This was an emergency department visit on May 30, 2026. The hospital was out-of-network, but because it was emergency care, you are protected by federal law. That means your copay and coinsurance are based on in-network rates, not out-of-network rates. You owe $250 for the copay [CODE-PR-3: \"a fixed dollar amount for a covered visit or service\"], plus $146 coinsurance [CODE-PR-2: \"your percentage share of the allowed amount\"]. The hospital billed $2,400, but the plan's allowed amount is $980. The $1,420 difference is written off by the provider [CODE-CO-45: \"The difference is written off by the provider. Members do not owe CO-45 amounts\"]\u2014you never owe that part.",
+      "you_owe": 396.0,
+      "citations": [
+        {
+          "chunk_id": "PLAN-COPAY",
+          "quote": "The emergency room copay is $250, waived if you are admitted to the hospital.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 13.196,
+          "matched_terms": [
+            "3",
+            "pr",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 10.343,
+          "matched_terms": [
+            "emergency",
+            "room",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 9.909,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Review any bill from St. Adelaide Regional Medical Center. It should show only your $250 copay and $146 coinsurance ($396 total). If the hospital bills you for any amount above that, contact them immediately and reference this EOB and claim CLM-2026-88617.",
+    "Verify that your out-of-pocket total of $396 has been applied to your yearly out-of-pocket maximum. Your plan records show you had used $1,600 before this visit."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 2686,
+    "output_tokens": 739
+  }
+}

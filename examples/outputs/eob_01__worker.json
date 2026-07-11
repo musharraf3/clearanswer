@@ -1,0 +1,128 @@
+{
+  "eob_id": "eob_01",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "Your annual physical and flu shot on June 2, 2026, were both covered at 100% as preventive care. The plan paid the full allowed amounts. You owe $0. The provider wrote off the difference between their billed charges and the plan's allowed rates.",
+  "total_you_owe": 0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "preventive",
+      "explanation": "Annual preventive exam (CPT 99395). This service is covered at 100% with no copay or coinsurance. [PLAN-PREV: \"In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services.\"] The provider billed $320, but the plan's contracted rate is $180. The plan paid the full $180. The $140 difference is a contractual write-off. [CODE-CO-45: \"CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.\"]",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "PLAN-PREV",
+          "quote": "In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-PREV",
+          "score": 7.151,
+          "matched_terms": [
+            "annual",
+            "preventive"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "preventive",
+      "explanation": "Influenza vaccine (CPT 90686). This is a preventive service covered at 100% with no copay or coinsurance. [PLAN-PREV: \"In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services.\"] The provider billed $62, but the plan's contracted rate is $41. The plan paid the full $41. The $21 difference is a contractual write-off and is the provider's responsibility. [CODE-CO-45: \"Members do not owe CO-45 amounts for in-network care.\"]",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "PLAN-PREV",
+          "quote": "In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "score": 2.438,
+          "matched_terms": [
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Keep this EOB for your records.",
+    "If you receive a bill from the provider for any amount, contact the provider's billing office and refer them to this EOB\u2014preventive services are covered at 100%, and CO write-offs are the provider's responsibility.",
+    "If the provider continues to bill you, contact your plan's member services."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1893,
+    "output_tokens": 951
+  }
+}

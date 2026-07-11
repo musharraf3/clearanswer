@@ -1,0 +1,133 @@
+{
+  "eob_id": "eob_05",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "This EOB shows the same lab test (comprehensive metabolic panel, CPT 80053) billed twice on the same day (June 12, 2026) by Lakeside Imaging Center. This is a duplicate billing error \u2014 one of the most common mistakes on EOBs. You should not owe anything for a duplicate service. Contact the provider immediately with your EOB and ask them to submit a corrected bill with only one test.",
+  "total_you_owe": null,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "Line 1 shows a comprehensive metabolic panel on June 12, 2026. The provider billed $240, but the plan's contracted rate is $120. The plan paid $96 (80% of $120). You owe $24 as coinsurance \u2014 your 20% share of the allowed amount. However, this line is part of a duplicate: the exact same test appears on line 2 the same day.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 3.274,
+          "matched_terms": [
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "possible_error",
+      "explanation": "Line 2 is a duplicate of line 1 \u2014 the same CPT code (80053), same date of service (June 12, 2026), same billed and allowed amounts. Duplicate billing is one of the most common EOB errors. You should not pay for the same test twice.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 3.274,
+          "matched_terms": [
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": "L1,L2",
+      "check": "duplicate_line",
+      "severity": "error",
+      "detail": "CPT 80053 on 2026-06-12 appears 2 times. Duplicate billing is one of the most common EOB errors \u2014 ask the provider for an itemized bill.",
+      "expected": null,
+      "actual": null
+    }
+  ],
+  "actions": [
+    "Contact Lakeside Imaging Center and ask why the comprehensive metabolic panel (CPT 80053) appears twice on June 12, 2026.",
+    "Request an itemized bill from the provider showing what was actually done that day \u2014 only one metabolic panel should be listed.",
+    "Ask the provider to submit a corrected claim with the duplicate removed.",
+    "Do not pay any amount for line 2 until this is resolved.",
+    "If the provider cannot explain the duplicate within 10 business days, contact your plan's member services for help."
+  ],
+  "escalate": true,
+  "escalate_reason": "Duplicate line detected: CPT 80053 billed twice on 2026-06-12. This is a billing error that may require plan intervention or appeal if the provider does not correct it voluntarily.",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1934,
+    "output_tokens": 769
+  }
+}

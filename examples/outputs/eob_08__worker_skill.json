@@ -1,0 +1,126 @@
+{
+  "eob_id": "eob_08",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "summary": "This EOB shows a knee surgery with two lines. Line 1 (the main surgery) is approved \u2014 you owe $580 coinsurance. Line 2 (ultrasound guidance) is bundled into the surgery, so the provider cannot charge you separately for it. You do not owe anything for Line 2. The provider's total write-off is $4,350.",
+  "total_you_owe": 580,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "coinsurance",
+      "explanation": "You owe $580 for this knee arthroscopy. The plan allowed $2,900 for this surgery [CODE-PR-2: \"coinsurance, your percentage share of the allowed amount\"]. The plan paid $2,320. You pay the remaining $580, which is your coinsurance share. The provider billed $6,800, but your plan's rate is $2,900 \u2014 the $3,900 difference is written off by the provider [CODE-CO-45: \"the difference is written off by the provider\"], so you never owe that part.",
+      "you_owe": 580,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "GRP-PR",
+          "score": 2.735,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "bundled",
+      "explanation": "This ultrasound guidance during your surgery is bundled into the main surgery charge [CODE-CO-97: \"payment for this service is included in the payment for another service performed the same day\"], so the provider cannot separately bill you for it. You owe $0 for this line. If the provider's bill includes a separate charge for ultrasound guidance, dispute it \u2014 [GRP-CO: \"it should never appear as an amount the member owes\"].",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "CODE-CO-97",
+          "quote": "CO-97 means payment for this service is included in the payment for another service performed the same day, a practice called bundling. The provider cannot separately bill the member for a bundled service.",
+          "verified": true
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "quote": "CO means the provider agreed by contract to write this amount off. A CO adjustment is the provider's responsibility, and it should never appear as an amount the member owes.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-97",
+          "score": 6.411,
+          "matched_terms": [
+            "97",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "score": 2.438,
+          "matched_terms": [
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 2.341,
+          "matched_terms": [
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-16",
+          "score": 2.046,
+          "matched_terms": [
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Verify your bill from Pacific Coast Surgery Center against this EOB. Line 1 should show $580 due; Line 2 (ultrasound) should show $0 or be absent.",
+    "If Pacific Coast Surgery Center bills you for the $450 ultrasound (Line 2), contact their billing office immediately and reference Code CO-97. Send them a copy of this EOB. Do not pay that charge.",
+    "Compare the $2,900 allowed amount on Line 1 to your plan documents to confirm the coinsurance percentage is correct."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3325,
+    "output_tokens": 861
+  }
+}

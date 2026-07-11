@@ -1,0 +1,137 @@
+{
+  "eob_id": "eob_05",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "This document from Sunrise Health PPO is an Explanation of Benefits (EOB) \u2014 it is not a bill. It shows two lab charges from Lakeside Imaging Center for June 12, 2026. Both lines are for the exact same test: a comprehensive metabolic panel (CPT 80053). An automatic check found a problem: the same test appears twice on the same day. This looks like a duplicate charge, which is one of the most common EOB errors. Because of this, do not pay any bill for these charges until the duplicate is sorted out.",
+  "total_you_owe": null,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "This line is for a blood test called a comprehensive metabolic panel. The EOB shows a $24.00 coinsurance charge \u2014 PR-2 means 'this amount is coinsurance, your percentage share of the allowed amount after the deductible is met' [CODE-PR-2]. The $120.00 marked CO-45 is not yours: 'The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care' [CODE-CO-45]. But there is a bigger issue: the code checker found that 'CPT 80053 on 2026-06-12 appears 2 times' \u2014 the same test is listed twice on the same day. That looks like a duplicate charge, so hold off on paying anything for this test until the provider explains it.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 3.274,
+          "matched_terms": [
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "possible_error",
+      "explanation": "This line is an exact repeat of Line 1: the same blood test (comprehensive metabolic panel, CPT 80053), same date, same amounts. The code checker flagged this as a duplicate: 'CPT 80053 on 2026-06-12 appears 2 times.' If the test was truly only done once, you should not owe the $24.00 coinsurance on this second line, and the plan should not have paid for it either. The $120.00 CO-45 amount is the provider's write-off, not yours: 'Members do not owe CO-45 amounts for in-network care' [CODE-CO-45]. The coinsurance code on this line is PR-2, 'your percentage share of the allowed amount after the deductible is met' [CODE-PR-2] \u2014 but that only applies if the service actually happened twice.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 3.274,
+          "matched_terms": [
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": "L1,L2",
+      "check": "duplicate_line",
+      "severity": "error",
+      "detail": "CPT 80053 on 2026-06-12 appears 2 times. Duplicate billing is one of the most common EOB errors \u2014 ask the provider for an itemized bill.",
+      "expected": null,
+      "actual": null
+    }
+  ],
+  "actions": [
+    "Do not pay any bill from Lakeside Imaging Center for these charges until the duplicate is resolved.",
+    "Call Lakeside Imaging Center's billing office (number on their bill) and ask why CPT 80053 appears twice for June 12, 2026. Request an itemized bill.",
+    "If the test was only done once, ask the provider to correct the claim and resubmit it to Sunrise Health PPO.",
+    "Call the member services number on your insurance card, give them claim CLM-2026-88476, and ask them to review the possible duplicate on lines L1 and L2."
+  ],
+  "escalate": true,
+  "escalate_reason": "The deterministic math check found an ERROR-severity duplicate-billing finding: CPT 80053 appears twice for the same date of service. A human should review this claim before the member pays anything.",
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 4346,
+    "output_tokens": 1543
+  }
+}

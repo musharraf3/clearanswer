@@ -1,0 +1,88 @@
+{
+  "eob_id": "eob_09",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "This EOB is for a chemotherapy infusion at Bayview Infusion Center on June 10, 2026. It shows a $350 coinsurance charge, but an automatic check found a problem: your out-of-pocket spending for the year would total $6,650.00, which is over your plan's $6,500.00 out-of-pocket maximum. Amounts above that maximum are the plan's responsibility, not yours. This looks like a plan processing error, not something you did wrong. Remember: an EOB is not a bill \u2014 do not pay anything based on this document.",
+  "total_you_owe": null,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "This line is for your chemotherapy infusion (first hour). The plan approved $1,750 of the $3,900 charge and paid $1,400. The $2,150 difference is written off by your provider under CO-45 (the discount your provider agreed to) \u2014 'The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.' The $350 shown in your column is labeled PR-2 (coinsurance, your percentage share of the approved price). But the automatic math check found an error: your running out-of-pocket total ($6,650.00, including $6,300.00 already used this year) exceeds the plan's $6,500.00 out-of-pocket maximum. Amounts above the maximum are the plan's responsibility, not yours. So at least part of this $350 should not be your responsibility, and the claim likely needs to be reprocessed.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 5.632,
+          "matched_terms": [
+            "first",
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": null,
+      "check": "oop_max",
+      "severity": "error",
+      "detail": "Your running out-of-pocket total ($6,650.00, including $6,300.00 already used this year) exceeds the plan's $6,500.00 out-of-pocket maximum. Amounts above the maximum are the plan's responsibility, not yours.",
+      "expected": 6500.0,
+      "actual": 6650.0
+    }
+  ],
+  "actions": [
+    "Do not pay any provider bill for this claim until the out-of-pocket maximum error is resolved.",
+    "Call Sunrise Health member services (number on your insurance card) and tell them claim CLM-2026-88790 charged coinsurance that pushes your yearly out-of-pocket total past the $6,500 maximum. Ask them to reprocess the claim.",
+    "Ask the plan to send you a corrected EOB showing the fixed amounts once the claim is reprocessed.",
+    "If a bill arrives from Bayview Infusion Center for $350, compare it to the corrected EOB before paying anything, and dispute any amount above what the corrected EOB says you owe."
+  ],
+  "escalate": true,
+  "escalate_reason": "The code-verified math check found an ERROR: the coinsurance on this claim pushes the member's out-of-pocket total ($6,650.00) past the plan's $6,500.00 out-of-pocket maximum. Also, the retrieved passages do not include a plan document explaining the out-of-pocket maximum rule, so a human should confirm the exact corrected amount the member owes.",
+  "groundedness": {
+    "total_quotes": 2,
+    "verified_quotes": 2,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3652,
+    "output_tokens": 1676
+  }
+}

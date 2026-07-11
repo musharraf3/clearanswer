@@ -1,0 +1,84 @@
+{
+  "eob_id": "eob_02",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "This EOB (which is not a bill) explains your knee MRI on May 14, 2026 at Lakeside Imaging Center. Your plan approved $850 for the scan. Because you had not yet met your yearly deductible, the full $850 approved amount went toward your deductible. The extra $950 your provider billed above the approved price is written off \u2014 you never owe that part.",
+  "total_you_owe": 850.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "deductible",
+      "explanation": "You owe $850 for this MRI. That is the plan's full allowed (approved) amount, and it was applied to your deductible \u2014 the amount you pay each year before the plan starts sharing costs. PR-1 (deductible) confirms this, and the good news is it 'counts toward both your deductible and your out-of-pocket maximum.' The $950 gap between the $1,800 billed charge and the $850 approved price is CO-45 (the discount your provider agreed to). That difference is written off by the provider \u2014 you do not owe it because this was in-network care.",
+      "you_owe": 850.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-1",
+          "quote": "PR-1 means this amount was applied to your deductible, the amount you pay each year before the plan starts sharing costs.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-1",
+          "quote": "It counts toward both your deductible and your out-of-pocket maximum.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 9.822,
+          "matched_terms": [
+            "imaging",
+            "mri",
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-1",
+          "score": 6.336,
+          "matched_terms": [
+            "1",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "When a bill arrives from Lakeside Imaging Center, verify it says $850 \u2014 not $1,800. The $950 difference is the provider's write-off, not your charge.",
+    "Keep this EOB with your records. The $850 counts toward your deductible and your out-of-pocket maximum, which lowers what you pay later this year.",
+    "If the provider's bill shows any amount other than $850, call their billing office and ask them to match it to this EOB before you pay anything."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3493,
+    "output_tokens": 869
+  }
+}

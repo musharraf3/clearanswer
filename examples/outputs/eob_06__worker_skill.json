@@ -1,0 +1,92 @@
+{
+  "eob_id": "eob_06",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "summary": "This EOB shows a joint injection that the plan partially covered, but there is a math error in your 'you owe' column. The document says you owe $262, but when we add up the copay ($50) and coinsurance ($62), that totals only $112. We need the plan to explain the extra $150.",
+  "total_you_owe": null,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "You received a joint injection on June 4, 2026. The provider billed $620, but the plan's allowed amount is $310. The plan paid $198 of that. You owe a $50 copay [CODE-PR-3: \"a fixed dollar amount for a covered visit or service\"] and $62 coinsurance [CODE-PR-2: \"your percentage share of the allowed amount after the deductible is met\"]. That adds up to $112. However, this EOB says you owe $262 \u2014 a difference of $150. The remaining $310 difference between the bill and the allowed amount is written off by the provider [CODE-CO-45: \"the difference is written off by the provider. Members do not owe CO-45 amounts for in-network care\"], so you never owe that. The $150 discrepancy must be resolved before you pay any bill from this provider.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "a fixed dollar amount for a covered visit or service",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "your percentage share of the allowed amount after the deductible is met",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 10.276,
+          "matched_terms": [
+            "3",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 9.909,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "GRP-PR",
+          "score": 5.47,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": "L1",
+      "check": "line_arithmetic",
+      "severity": "error",
+      "detail": "The 'you owe' amount does not equal deductible + copay + coinsurance + not-covered for this line. Ask the plan to re-explain this amount.",
+      "expected": 112.0,
+      "actual": 262.0
+    }
+  ],
+  "actions": [
+    "Do not pay any bill from Cascade Orthopedic Group for this claim until the math error is resolved.",
+    "Call Sunrise Health's customer service line (number on the back of your plan card) and provide claim ID CLM-2026-88533. Ask them to explain why the 'you owe' column shows $262 when the copay ($50) + coinsurance ($62) totals only $112.",
+    "Once the plan responds, compare their explanation to the provider's bill before paying anything."
+  ],
+  "escalate": true,
+  "escalate_reason": "Math error detected by deterministic code: the 'you owe' amount ($262) does not match the sum of copay + coinsurance + deductible + not-covered charges ($112). The difference of $150 cannot be tied to any plan rule or code definition in the retrieved passages. A human must reconcile this discrepancy before the member can be advised what to pay.",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 2788,
+    "output_tokens": 716
+  }
+}

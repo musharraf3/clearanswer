@@ -1,0 +1,92 @@
+{
+  "eob_id": "eob_10",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "This EOB shows one physical therapy visit on January 22, 2026. The plan denied the claim because your provider, Northgate Physical Therapy, filed it after the deadline. That is the provider's mistake, not yours. Our automated checker found an error on this EOB: the $95 write-off was wrongly placed in your column. You should not owe anything for this visit. Remember, an EOB is not a bill \u2014 do not pay anything based on this document.",
+  "total_you_owe": 0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "This line is for therapeutic exercises (CPT 97110) at physical therapy. The plan rejected it with code CO-29 (filed too late), which means 'the provider submitted the claim after the plan's filing deadline. Because this is the provider's error, the write-off is the provider's responsibility, and the member is generally not liable for the amount' [CODE-CO-29]. The 'CO' part of the code matters: 'CO means the provider agreed by contract to write this amount off. A CO adjustment is the provider's responsibility, and it should never appear as an amount the member owes' [GRP-CO]. Our code checker confirmed the problem: it expected $0.00 in your column, but the EOB shows $95.00 there. That $95 belongs to the provider's write-off, not to you. If the provider sends you a bill for it, 'that is generally improper balance billing under their network contract' [GRP-CO].",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "CODE-CO-29",
+          "quote": "Because this is the provider's error, the write-off is the provider's responsibility, and the member is generally not liable for the amount.",
+          "verified": true
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "quote": "A CO adjustment is the provider's responsibility, and it should never appear as an amount the member owes.",
+          "verified": true
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "quote": "If a provider bills you for a CO amount, that is generally improper balance billing under their network contract.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-29",
+          "score": 6.135,
+          "matched_terms": [
+            "29",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "score": 2.438,
+          "matched_terms": [
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": "L1",
+      "check": "co_group_billing",
+      "severity": "error",
+      "detail": "Adjustment CO-29 is a CO (contractual obligation) group code \u2014 the provider writes this off. It should never appear as an amount you owe.",
+      "expected": 0.0,
+      "actual": 95.0
+    }
+  ],
+  "actions": [
+    "Do not pay any bill from Northgate Physical Therapy for the January 22, 2026 visit until this error is resolved.",
+    "Call Sunrise Health member services (number on your insurance card) and ask them to correct claim CLM-2026-88855 \u2014 the $95 CO-29 write-off was placed in your responsibility column by mistake.",
+    "If Northgate Physical Therapy bills you $95 for this visit, dispute it in writing and keep a copy \u2014 CO-29 write-offs are the provider's responsibility, not yours.",
+    "Ask the plan to send you a corrected EOB showing $0 owed for this line."
+  ],
+  "escalate": true,
+  "escalate_reason": "Deterministic math check found an ERROR-severity finding: a CO-29 contractual write-off of $95.00 appears in the member's responsibility column when the expected member liability is $0.00. This EOB needs correction by the plan.",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3654,
+    "output_tokens": 1150
+  }
+}

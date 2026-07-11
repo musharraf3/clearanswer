@@ -1,0 +1,87 @@
+{
+  "eob_id": "eob_09",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "summary": "This EOB shows a chemotherapy infusion that cost $3,900, but your plan's approved price was $1,750. Your plan paid $1,400, leaving $350 as your coinsurance share (20% of the allowed amount). However, your out-of-pocket costs for the year have now reached $6,650 \u2014 which is $150 over your plan's $6,500 yearly maximum. That means the plan should cover the extra $150, not you. You should owe $200 for this service, not $350.",
+  "total_you_owe": 200.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "You received chemotherapy infusion on June 10. The provider billed $3,900, but your plan's contracted rate is $1,750 [CODE-CO-45: 'the provider billed more than the rate they agreed to with the plan']. Your plan paid $1,400 of the allowed amount, which leaves $350 as your coinsurance \u2014 your 20% share [CODE-PR-2: 'this amount is coinsurance, your percentage share of the allowed amount']. The provider wrote off the $2,150 difference between their bill and the plan's rate [CODE-CO-45: 'Members do not owe CO-45 amounts']. However, here is the problem: your out-of-pocket total for the year is now $6,650 (you had already used $6,300 before this claim). Your plan's yearly out-of-pocket maximum is $6,500. Because you have hit that limit, the plan should pay the extra $150 of coinsurance \u2014 you should only owe $200, not $350.",
+      "you_owe": 200.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 5.632,
+          "matched_terms": [
+            "first",
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": null,
+      "check": "oop_max",
+      "severity": "error",
+      "detail": "Your running out-of-pocket total ($6,650.00, including $6,300.00 already used this year) exceeds the plan's $6,500.00 out-of-pocket maximum. Amounts above the maximum are the plan's responsibility, not yours.",
+      "expected": 6500.0,
+      "actual": 6650.0
+    }
+  ],
+  "actions": [
+    "Do not pay the provider's bill for $350 until this out-of-pocket maximum error is resolved. The math shows you should owe only $200 on this claim.",
+    "Call your plan's customer service line (number on the front of your member card) and report that your out-of-pocket costs exceeded the $6,500 yearly maximum. Ask them to recalculate this claim and send a corrected EOB.",
+    "If the plan does not correct this within 10 business days, ask for the phone number of the plan's appeals department and file a written dispute. Keep a copy of this EOB and the math finding as evidence."
+  ],
+  "escalate": true,
+  "escalate_reason": "Math error severity 'error': member's out-of-pocket total ($6,650) exceeds the plan maximum ($6,500) by $150. This is a high-stakes billing error affecting member's cost responsibility. Recommend human review to confirm the corrected amount owed and coordinate with plan billing system.",
+  "groundedness": {
+    "total_quotes": 2,
+    "verified_quotes": 2,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 2779,
+    "output_tokens": 789
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "eob_id": "eob_08",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "You had knee surgery on June 6, 2026, at Pacific Coast Surgery Center. The main surgery (line L1) was mostly covered by your plan. A second service on the same day (ultrasound guidance, line L2) was bundled into the surgery cost, so the provider cannot bill you separately for it. You owe $580 for coinsurance on the main surgery.",
+  "total_you_owe": 580.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "coinsurance",
+      "explanation": "Knee arthroscopy with meniscectomy (CPT 29881). The provider billed $6,800, but your plan's allowed amount is $2,900. The plan paid $2,320. You owe $580 in coinsurance, which is your percentage share of the allowed amount. [CODE-PR-2: \"PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.\"] The difference between what was billed ($6,800) and the allowed amount ($2,900) is written off by the provider as a contractual adjustment. [CODE-CO-45: \"Members do not owe CO-45 amounts for in-network care.\"]",
+      "you_owe": 580.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "GRP-PR",
+          "score": 2.735,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "bundled",
+      "explanation": "Ultrasound guidance during procedure (CPT 76942). This service is bundled into the main surgery performed the same day. [CODE-CO-97: \"CO-97 means payment for this service is included in the payment for another service performed the same day, a practice called bundling. The provider cannot separately bill the member for a bundled service.\"] The provider's $450 charge is written off and you owe nothing for this line.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-CO-97",
+          "quote": "CO-97 means payment for this service is included in the payment for another service performed the same day, a practice called bundling. The provider cannot separately bill the member for a bundled service.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-97",
+          "score": 6.411,
+          "matched_terms": [
+            "97",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "score": 2.438,
+          "matched_terms": [
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 2.341,
+          "matched_terms": [
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-16",
+          "score": 2.046,
+          "matched_terms": [
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Verify that you have not received a separate bill from Pacific Coast Surgery Center for the ultrasound guidance (CPT 76942). If you have, contact the provider and reference CO-97 bundling code to dispute the charge.",
+    "Review your plan documents to confirm the coinsurance percentage (the plan appears to have paid 80% and you pay 20% of the allowed amount).",
+    "Verify that the $580 coinsurance charge matches your plan's stated out-of-pocket cost-sharing rules."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1908,
+    "output_tokens": 795
+  }
+}

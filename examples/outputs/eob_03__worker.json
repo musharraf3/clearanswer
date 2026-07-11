@@ -1,0 +1,136 @@
+{
+  "eob_id": "eob_03",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "This EOB shows a specialist visit and lab test on June 9, 2026. Your plan paid most of the allowed amounts, and you owe a $50 copay for the specialist visit plus $24 coinsurance (your percentage share) for the lab. The provider wrote off the difference between their bill and the plan's contracted rate.",
+  "total_you_owe": 74.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "copay",
+      "explanation": "Specialist office visit: You paid a $50 copay. This is a fixed amount for a covered specialist visit (PLAN-COPAY: \"Office visit copays are $25 for primary care and $50 for specialists\"). The plan paid $95 toward the allowed amount of $145. The provider's bill was $260, but they agreed to accept $145 with the plan; the extra $115 is written off (CODE-CO-45: \"the difference is written off by the provider. Members do not owe CO-45 amounts for in-network care\").",
+      "you_owe": 50.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service",
+          "verified": true
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "quote": "Office visit copays are $25 for primary care and $50 for specialists",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 10.456,
+          "matched_terms": [
+            "3",
+            "pr",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 8.306,
+          "matched_terms": [
+            "office",
+            "visit"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 6.943,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "coinsurance",
+      "explanation": "Lab test (metabolic panel): After your deductible was already met, you owe $24 coinsurance. This is your percentage share of the allowed amount (CODE-PR-2: \"coinsurance, your percentage share of the allowed amount after the deductible is met\"). The plan paid $96 and you pay $24 of the $120 allowed. The provider's bill was $240, but the agreed rate is $120; the extra $120 is written off (CODE-CO-45: \"the provider billed more than the rate they agreed to with the plan\").",
+      "you_owe": 24.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Review the itemized bill from Bayview Endocrinology Associates to verify the visit date (June 9, 2026) and service descriptions match this EOB.",
+    "When you receive a bill from the provider, confirm it only requests the $50 copay and $24 coinsurance shown here\u2014not the written-off amounts.",
+    "Check your plan documents to confirm your coinsurance percentage (appears to be 20% based on the $24 share of $120 allowed)."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1884,
+    "output_tokens": 868
+  }
+}

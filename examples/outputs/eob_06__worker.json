@@ -1,0 +1,92 @@
+{
+  "eob_id": "eob_06",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "This EOB shows a joint injection service on 6/4/2026. The plan paid $198, but the 'you owe' total ($262) does not match the sum of copay ($50) + coinsurance ($62) + deductible ($0) + not-covered ($0), which should equal $112. This is a math error that must be resolved before you pay.",
+  "total_you_owe": null,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "Joint injection (CPT 20610) at Cascade Orthopedic Group. Provider billed $620; the plan's allowed amount is $310. The plan paid $198. You have a $50 copay (CODE-PR-3: \"a fixed dollar amount for a covered visit or service\") and $62 coinsurance (CODE-PR-2: \"your percentage share of the allowed amount after the deductible is met\"). The $310 billed amount minus the allowed amount ($620 \u2212 $310 = $310) was written off under code CO-45 (CODE-CO-45: \"the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care\"). However, the EOB shows 'you owe' as $262, but the math does not work: $50 + $62 + $0 = $112, not $262. The deterministic math check found this error and flagged it for resolution.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 10.276,
+          "matched_terms": [
+            "3",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 9.909,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "GRP-PR",
+          "score": 5.47,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": "L1",
+      "check": "line_arithmetic",
+      "severity": "error",
+      "detail": "The 'you owe' amount does not equal deductible + copay + coinsurance + not-covered for this line. Ask the plan to re-explain this amount.",
+      "expected": 112.0,
+      "actual": 262.0
+    }
+  ],
+  "actions": [
+    "Do NOT pay the provider $262 until this error is resolved.",
+    "Contact Sunrise Health PPO and ask them to explain why 'you owe' is $262 when the copay ($50) + coinsurance ($62) only adds to $112.",
+    "Ask the plan to send a corrected EOB or written explanation of the difference."
+  ],
+  "escalate": true,
+  "escalate_reason": "Line L1 has a math error: 'you owe' ($262) does not equal the sum of deductible + copay + coinsurance + not-covered ($112). This must be resolved by the plan before the member can be billed accurately.",
+  "groundedness": {
+    "total_quotes": 3,
+    "verified_quotes": 3,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1371,
+    "output_tokens": 750
+  }
+}

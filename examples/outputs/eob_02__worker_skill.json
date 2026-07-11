@@ -1,0 +1,79 @@
+{
+  "eob_id": "eob_02",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "summary": "This EOB shows one MRI service on May 14, 2026. The plan's allowed price was $850. Because you had not yet met your $1,500 yearly deductible, the entire allowed amount goes to your deductible \u2014 the plan paid $0 on this claim. The provider billed $1,800, but your plan only recognizes $850 as fair. The $950 difference is written off by the provider and you do not owe it. After this service, you will have used $1,050 of your deductible ($200 before + $850 from this claim).",
+  "total_you_owe": 850,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "deductible",
+      "explanation": "You owe $850 for this MRI. This amount is applied to your yearly $1,500 deductible [CODE-PR-1: \"PR-1 means this amount was applied to your deductible, the amount you pay each year before the plan starts sharing costs.\"]. The provider billed $1,800, but your plan's allowed price is $850. The $950 difference (called CO-45) is written off by the provider [CODE-CO-45: \"CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.\"], so you do not owe that part. Once you meet your full deductible, the plan will begin to share the cost of covered services.",
+      "you_owe": 850,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-1",
+          "quote": "PR-1 means this amount was applied to your deductible, the amount you pay each year before the plan starts sharing costs.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 9.822,
+          "matched_terms": [
+            "imaging",
+            "mri",
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-1",
+          "score": 6.336,
+          "matched_terms": [
+            "1",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Verify that Lakeside Imaging's bill matches this EOB \u2014 they should only bill you $850, not the $1,800 billed amount. If they bill you for more, contact their billing office with a copy of this EOB.",
+    "Track your deductible progress: you have now used $1,050 of your $1,500 deductible. You have $450 remaining before the plan begins to share costs.",
+    "Note: MRI services may require prior authorization from your plan before the appointment. If you have a future imaging need, ask your doctor's office or call your plan to confirm approval first."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 2,
+    "verified_quotes": 2,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 2655,
+    "output_tokens": 703
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "eob_id": "eob_01",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "summary": "Your annual physical and flu shot on June 2, 2026 were covered at no cost to you. Both services are preventive care \u2014 the plan pays 100% in-network with no copay or coinsurance. Your provider billed $382 total, but the plan's approved amounts were $221. The $161 difference is written off by your provider and you do not owe it.",
+  "total_you_owe": 0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "preventive",
+      "explanation": "Your annual wellness exam (CPT 99395) is a preventive service covered at 100% with no cost to you when you see an in-network provider [PLAN-PREV: \"In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services.\"]. The provider billed $320, but your plan's approved amount is $180. The plan paid that full $180. The extra $140 your provider billed is a charge above the contracted rate [CODE-CO-45: \"CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.\"] \u2014 your provider writes it off, and you owe nothing.",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "PLAN-PREV",
+          "quote": "In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-PREV",
+          "score": 7.151,
+          "matched_terms": [
+            "annual",
+            "preventive"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "preventive",
+      "explanation": "Your flu vaccine (CPT 90686) is also a preventive service covered at 100% in-network with no cost to you [PLAN-PREV: \"In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services.\"]. The provider billed $62, but the plan's approved amount is $41. The plan paid that full $41. The extra $21 is a charge above the contracted rate [CODE-CO-45: \"CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.\"] \u2014 your provider writes it off, and you owe nothing.",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "PLAN-PREV",
+          "quote": "In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance. You should owe $0 for these services.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "score": 2.438,
+          "matched_terms": [
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Keep this EOB for your records \u2014 it confirms you owe $0 for this visit.",
+    "If you receive a bill from Harborview Family Medicine for any amount related to this claim, do not pay it. Contact their billing office and refer them to this EOB and claim ID CLM-2026-88101."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3310,
+    "output_tokens": 1058
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "eob_id": "eob_01",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "Good news: this is a clean claim. Your annual checkup and flu shot on June 2, 2026 were both preventive care at an in-network provider, so your plan paid 100% and you owe $0. The dollar differences you see are discounts your provider agreed to write off \u2014 they are never your responsibility.",
+  "total_you_owe": 0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "preventive",
+      "explanation": "You owe $0 for your annual physical. Preventive checkups at in-network providers are fully covered by law \u2014 no deductible, copay, or coinsurance. The plan paid its full allowed amount of $180. The $140 gap between the $320 charge and the $180 allowed amount is coded CO-45 (the discount your provider agreed to), which the provider writes off. You never owe that part.",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "PLAN-PREV",
+          "quote": "In-network preventive services required by the Affordable Care Act, such as annual wellness visits, screening mammograms, and flu shots, are covered at 100% with no deductible, copay, or coinsurance.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-PREV",
+          "score": 7.151,
+          "matched_terms": [
+            "annual",
+            "preventive"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "preventive",
+      "explanation": "You owe $0 for your flu shot. Flu shots are preventive care, so your plan covers them in full at in-network providers. The plan paid its allowed amount of $41. The $21 difference between the $62 charge and the $41 allowed amount is coded CO-45 (the discount your provider agreed to). That amount is the provider's responsibility, not yours \u2014 it should never show up on a bill to you.",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "PLAN-PREV",
+          "quote": "You should owe $0 for these services.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider.",
+          "verified": true
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "quote": "A CO adjustment is the provider's responsibility, and it should never appear as an amount the member owes.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "score": 2.438,
+          "matched_terms": [
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Keep this EOB for your records \u2014 no payment is needed for this visit.",
+    "If Harborview Family Medicine sends you a bill for this June 2 visit, compare it to this EOB before paying anything, since this document shows you owe $0.",
+    "If you are billed for the write-off amounts ($140 or $21), call the billing office and point out these are CO-45 provider write-offs, then dispute in writing if needed."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 5,
+    "verified_quotes": 5,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 4266,
+    "output_tokens": 1306
+  }
+}

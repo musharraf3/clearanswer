@@ -1,0 +1,80 @@
+{
+  "eob_id": "eob_02",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "Your knee MRI on May 14, 2026 was in-network and covered. The allowed amount ($850) goes toward your yearly deductible because you hadn't met it yet. The provider's extra charge ($950) is written off and you don't owe it. You are responsible for the $850 deductible amount.",
+  "total_you_owe": 850.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "deductible",
+      "explanation": "This MRI was approved as an in-network service. The plan's allowed amount is $850. Since your deductible was not yet met (you had used $200 of it before this claim), the full $850 allowed amount is applied to your deductible [CODE-PR-1: \"PR-1 means this amount was applied to your deductible, the amount you pay each year before the plan starts sharing costs\"]. The provider billed $1,800 but agreed to accept $850 as the in-network rate; the extra $950 is written off by the provider [CODE-CO-45: \"CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care\"]. You do not owe the $950 writeoff.",
+      "you_owe": 850.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-1",
+          "quote": "PR-1 means this amount was applied to your deductible, the amount you pay each year before the plan starts sharing costs",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 9.822,
+          "matched_terms": [
+            "imaging",
+            "mri",
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-1",
+          "score": 6.336,
+          "matched_terms": [
+            "1",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Verify that you received prior authorization for this MRI before the service date, as [PLAN-AUTH: \"Advanced imaging such as MRI and CT... require prior authorization\"].",
+    "If you do not have a prior auth confirmation, contact your plan immediately to confirm coverage.",
+    "Wait for your deductible to be fully met before the plan begins to share costs on future services.",
+    "Do not pay the provider's original $1,800 bill; pay only the $850 in-network allowed amount that counts toward your deductible."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 2,
+    "verified_quotes": 2,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1238,
+    "output_tokens": 608
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "eob_id": "eob_05",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker+skill",
+  "mode": "live",
+  "summary": "This EOB shows the same lab test (metabolic panel) billed twice on the same day. The math checker flagged this as a duplicate \u2014 a common error. Before you pay any bill from this provider, you need to ask them for an itemized receipt to confirm whether you actually had two tests or just one. Do not pay until this is resolved.",
+  "total_you_owe": null,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "You owe $24 for this comprehensive metabolic panel \u2014 your 20% coinsurance share of the plan's allowed amount of $120 [CODE-PR-2: \"PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met\"]. The provider billed $240, but your plan's negotiated rate is $120; the extra $120 is written off by the provider and you do not owe it [CODE-CO-45: \"Members do not owe CO-45 amounts for in-network care\"]. However, this same test appears again on the same day (see line L2 below), which is a red flag for duplicate billing.",
+      "you_owe": 24.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 3.274,
+          "matched_terms": [
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "possible_error",
+      "explanation": "This line is identical to line L1: the same test (CPT 80053, metabolic panel) on the same date (June 12, 2026), with the same amounts. The math checker confirms this is a duplicate. You should owe $24 for coinsurance if this were a legitimate single service, but billing the same test twice suggests a billing error by the provider, not a valid second test. Do not pay this line until you verify with the provider that you actually received two separate tests.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "Members do not owe CO-45 amounts for in-network care",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 3.274,
+          "matched_terms": [
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": "L1,L2",
+      "check": "duplicate_line",
+      "severity": "error",
+      "detail": "CPT 80053 on 2026-06-12 appears 2 times. Duplicate billing is one of the most common EOB errors \u2014 ask the provider for an itemized bill.",
+      "expected": null,
+      "actual": null
+    }
+  ],
+  "actions": [
+    "Do not pay any bill from Lakeside Imaging Center for this claim until you resolve the duplicate. Call their billing office and ask for an itemized receipt showing whether you had one metabolic panel or two on June 12, 2026.",
+    "Ask the provider specifically: 'Why does CPT 80053 appear twice on my EOB for the same date? Did I have two separate tests, or is this a billing error?'",
+    "If the provider confirms this is a mistake, ask them to submit a corrected claim to your plan showing only one test.",
+    "If you receive a bill from the provider for $48 total (both lines), contact your plan's customer service and provide them a copy of this EOB and the provider's response."
+  ],
+  "escalate": true,
+  "escalate_reason": "Duplicate billing error (CPT 80053 billed twice on same day, same patient, same provider) flagged as ERROR severity by math checker. Member should not pay either line until provider confirms whether two tests were actually performed. High risk of overcharge.",
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3351,
+    "output_tokens": 922
+  }
+}

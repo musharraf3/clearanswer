@@ -1,0 +1,98 @@
+{
+  "eob_id": "eob_06",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "This document explains one claim from Cascade Orthopedic Group for a joint injection on June 4, 2026. Important: an EOB is not a bill \u2014 do not pay anything based on it. Our automated math check found a problem with this claim. The 'you owe' amount printed on the line ($262.00) does not match the sum of its parts. The checker calculated it should be $112.00. Because of this mismatch, do not pay any provider bill for this visit until the plan re-explains the amount.",
+  "total_you_owe": null,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "This line is for a joint injection at an in-network office. Part of your share is a $50 copay \u2014 PR-3 'means this amount is a copay, a fixed dollar amount for a covered visit or service' [CODE-PR-3]. Another $62 is coinsurance \u2014 PR-2 'means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met' [CODE-PR-2]. Good news: the $310 gap between the $620 charge and the plan's $310 allowed amount is written off by your provider under CO-45, which 'means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care' [CODE-CO-45]. Here is the problem: the automated math check found that the 'you owe' amount does not equal deductible + copay + coinsurance + not-covered for this line. It expected $112.00 but the EOB shows $262.00 \u2014 a $150.00 difference the document does not explain. PR amounts 'should still match the plan's stated deductible, copay, and coinsurance rules' [GRP-PR], and this one does not, so ask the plan to re-explain this amount before paying anything.",
+      "you_owe": null,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "quote": "PR-3 means this amount is a copay, a fixed dollar amount for a covered visit or service.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "CO-45 means the provider billed more than the rate they agreed to with the plan. The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        },
+        {
+          "chunk_id": "GRP-PR",
+          "quote": "PR amounts are legitimate member costs, but they should still match the plan's stated deductible, copay, and coinsurance rules.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 10.276,
+          "matched_terms": [
+            "3",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 9.909,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "GRP-PR",
+          "score": 5.47,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": "L1",
+      "check": "line_arithmetic",
+      "severity": "error",
+      "detail": "The 'you owe' amount does not equal deductible + copay + coinsurance + not-covered for this line. Ask the plan to re-explain this amount.",
+      "expected": 112.0,
+      "actual": 262.0
+    }
+  ],
+  "actions": [
+    "Do not pay any bill from Cascade Orthopedic Group for the June 4, 2026 joint injection until this $150.00 mismatch is resolved.",
+    "Call Sunrise Health PPO member services (number on your ID card) and ask them to re-explain the $262.00 'you owe' amount on claim CLM-2026-88533, line L1, since the copay and coinsurance parts add up differently.",
+    "Ask the plan for a corrected EOB in writing once they review the amount.",
+    "If a bill from the provider arrives that matches the $262.00 figure, dispute it in writing and reference this EOB and the plan's review."
+  ],
+  "escalate": true,
+  "escalate_reason": "Automated math check found an ERROR-severity mismatch on line L1: the stated patient responsibility ($262.00) does not equal the sum of copay, coinsurance, deductible, and not-covered amounts (expected $112.00). A human should review and get the plan to correct or re-explain this claim.",
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 3645,
+    "output_tokens": 1366
+  }
+}

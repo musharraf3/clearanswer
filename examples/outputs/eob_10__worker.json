@@ -1,0 +1,86 @@
+{
+  "eob_id": "eob_10",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "This EOB shows a $95 write-off that should NOT be your responsibility. The claim was filed late (after the plan's deadline), which is the provider's error. The code CO-29 means the provider must absorb this cost, not you. We found an error on this EOB: the $95 appears in your column when it belongs to the provider.",
+  "total_you_owe": 0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "timely_filing_writeoff",
+      "explanation": "The provider (Northgate Physical Therapy) submitted this claim after the plan's filing deadline. According to the EOB, a CO-29 code means 'the provider submitted the claim after the plan's filing deadline. Because this is the provider's error, the write-off is the provider's responsibility, and the member is generally not liable for the amount.' (CODE-CO-29) This $95 should never appear as money you owe. The plan correctly paid $0 on this line, but the EOB incorrectly lists $95 under 'patient_resp.' That is an error.",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "CODE-CO-29",
+          "quote": "CO-29 means the provider submitted the claim after the plan's filing deadline. Because this is the provider's error, the write-off is the provider's responsibility, and the member is generally not liable for the amount.",
+          "verified": true
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "quote": "CO means the provider agreed by contract to write this amount off. A CO adjustment is the provider's responsibility, and it should never appear as an amount the member owes.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-29",
+          "score": 6.135,
+          "matched_terms": [
+            "29",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-18",
+          "score": 4.472,
+          "matched_terms": [
+            "co",
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "score": 2.438,
+          "matched_terms": [
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": "L1",
+      "check": "co_group_billing",
+      "severity": "error",
+      "detail": "Adjustment CO-29 is a CO (contractual obligation) group code \u2014 the provider writes this off. It should never appear as an amount you owe.",
+      "expected": 0.0,
+      "actual": 95.0
+    }
+  ],
+  "actions": [
+    "Do not pay the $95. The provider filed late; they must absorb the cost.",
+    "If Northgate Physical Therapy sends you a bill for $95, contact them and cite code CO-29. If they persist, report balance billing to your state insurance commissioner.",
+    "Contact Sunrise Health customer service to report this EOB error \u2014 the $95 should not appear in your responsibility column."
+  ],
+  "escalate": true,
+  "escalate_reason": "EOB contains a material error: a timely-filing provider write-off (CO-29) is incorrectly shown as patient responsibility ($95). This may reflect a systemic billing system issue. Human review is needed to correct the EOB and ensure the member receives a corrected statement.",
+  "groundedness": {
+    "total_quotes": 2,
+    "verified_quotes": 2,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1369,
+    "output_tokens": 614
+  }
+}

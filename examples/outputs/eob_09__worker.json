@@ -1,0 +1,82 @@
+{
+  "eob_id": "eob_09",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "This EOB shows a chemotherapy infusion service where your out-of-pocket costs have exceeded your plan's yearly maximum. You should owe $0 for this claim because the plan's $6,500 out-of-pocket cap has been reached. However, the EOB is asking you to pay $350 in coinsurance. This is a billing error that needs correction.",
+  "total_you_owe": 0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "possible_error",
+      "explanation": "This line shows a $350 coinsurance charge (CODE-PR-2: \"PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met\"). However, your out-of-pocket costs for the year already totaled $6,300 before this claim. Adding the $350 coinsurance would bring your total to $6,650, which exceeds your plan's $6,500 yearly out-of-pocket maximum. Once you hit the maximum, the plan pays 100% of covered charges. The $350 over the cap ($6,650 \u2212 $6,500 = $150 minimum) should be the plan's responsibility, not yours. You should not owe any coinsurance on this service.",
+      "you_owe": 0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-AUTH",
+          "score": 5.632,
+          "matched_terms": [
+            "first",
+            "outpatient"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [
+    {
+      "line_id": null,
+      "check": "oop_max",
+      "severity": "error",
+      "detail": "Your running out-of-pocket total ($6,650.00, including $6,300.00 already used this year) exceeds the plan's $6,500.00 out-of-pocket maximum. Amounts above the maximum are the plan's responsibility, not yours.",
+      "expected": 6500.0,
+      "actual": 6650.0
+    }
+  ],
+  "actions": [
+    "Contact Sunrise Health PPO to report that coinsurance was charged after your $6,500 out-of-pocket maximum was exceeded.",
+    "Request a corrected EOB showing $0 patient responsibility for line L1, since the plan should cover 100% once the out-of-pocket max is reached.",
+    "Do not pay the $350 coinsurance charge until the plan confirms the correction in writing."
+  ],
+  "escalate": true,
+  "escalate_reason": "Out-of-pocket maximum overage detected: member was charged $350 coinsurance when their year-to-date out-of-pocket ($6,300) plus this charge ($350) = $6,650, exceeding the $6,500 plan maximum. At least $150 of this charge is the plan's responsibility. Human review required to correct the EOB and issue a refund if member has already paid.",
+  "groundedness": {
+    "total_quotes": 1,
+    "verified_quotes": 1,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1362,
+    "output_tokens": 611
+  }
+}

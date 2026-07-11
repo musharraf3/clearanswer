@@ -114,4 +114,6 @@ def call_model(arm: str, user_prompt: str) -> tuple[dict, dict, str]:
     })
     usage = {"input_tokens": data["usage"]["input_tokens"],
              "output_tokens": data["usage"]["output_tokens"]}
-    return _extract_json(data["content"][0]["text"]), usage, model
+    # Some models emit a thinking block before the text block.
+    text = next(b["text"] for b in data["content"] if b.get("type") == "text")
+    return _extract_json(text), usage, model

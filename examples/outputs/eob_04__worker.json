@@ -1,0 +1,77 @@
+{
+  "eob_id": "eob_04",
+  "model": "claude-haiku-4-5-20251001",
+  "arm": "worker",
+  "mode": "live",
+  "summary": "Your claim for acupuncture on 5/28/2026 was denied because acupuncture is not a covered benefit under your Sunrise Health PPO plan. The service cost $240. You are responsible for this full amount. However, you have the right to appeal this decision.",
+  "total_you_owe": 240.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "denial_not_covered",
+      "explanation": "Acupuncture (CPT 97810) is not covered by your plan. PR-204 states: \"this service is not a covered benefit under your plan, so the full allowed amount is your responsibility.\" [CODE-PR-204] The remark code N130 suggests you \"review your plan's benefit documents for the rules that apply to this service.\" [CODE-N130] You owe the full $240 billed amount.",
+      "you_owe": 240.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-204",
+          "quote": "PR-204 means this service is not a covered benefit under your plan, so the full allowed amount is your responsibility.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-N130",
+          "quote": "Remark code N130 directs you to review your plan's benefit documents for the rules that apply to this service.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-PR-204",
+          "score": 6.707,
+          "matched_terms": [
+            "204",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-N130",
+          "score": 4.571,
+          "matched_terms": [
+            "n130"
+          ]
+        },
+        {
+          "chunk_id": "PLAN-COPAY",
+          "score": 2.769,
+          "matched_terms": [
+            "office"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "Contact Meridian Wellness Clinic to discuss payment arrangements or ask if they offer a self-pay discount.",
+    "Review your Sunrise Health PPO plan documents to confirm acupuncture coverage rules.",
+    "If you believe acupuncture should be covered (for example, due to a medical condition or prior authorization), file an appeal. According to CODE-PR-204, \"You have the right to appeal if you believe the service should be covered, starting with an internal appeal.\"",
+    "Keep this EOB and any documentation of your appeal for your records."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 2,
+    "verified_quotes": 2,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 1251,
+    "output_tokens": 512
+  }
+}

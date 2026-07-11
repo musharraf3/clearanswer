@@ -1,0 +1,127 @@
+{
+  "eob_id": "eob_08",
+  "model": "claude-fable-5",
+  "arm": "teacher+skill",
+  "mode": "live",
+  "summary": "This EOB (not a bill) explains your knee surgery on June 6, 2026 at Pacific Coast Surgery Center. The plan approved $2,900 for the surgery and paid $2,320. Your share is $580, which is your coinsurance (your percentage of the approved price). The ultrasound guidance line was 'bundled' \u2014 its cost is included in the surgery payment, so you owe nothing for it and the provider cannot bill you for it.",
+  "total_you_owe": 580.0,
+  "lines": [
+    {
+      "line_id": "L1",
+      "category": "coinsurance",
+      "explanation": "You owe $580 for the knee surgery. That is your coinsurance \u2014 your percentage share of the plan's allowed amount of $2,900 [PR-2 means 'this amount is coinsurance, your percentage share of the allowed amount']. Good news: the $3,900 difference between the $6,800 charge and the plan's approved price is written off by your provider under CO-45 (the discount they agreed to) \u2014 you never owe that part.",
+      "you_owe": 580.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-PR-2",
+          "quote": "PR-2 means this amount is coinsurance, your percentage share of the allowed amount after the deductible is met.",
+          "verified": true
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "quote": "The difference is written off by the provider. Members do not owe CO-45 amounts for in-network care.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 7.336,
+          "matched_terms": [
+            "45",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-2",
+          "score": 7.267,
+          "matched_terms": [
+            "2",
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "CODE-PR-3",
+          "score": 2.739,
+          "matched_terms": [
+            "pr"
+          ]
+        },
+        {
+          "chunk_id": "GRP-PR",
+          "score": 2.735,
+          "matched_terms": [
+            "pr"
+          ]
+        }
+      ]
+    },
+    {
+      "line_id": "L2",
+      "category": "bundled",
+      "explanation": "You owe $0 for the ultrasound guidance. It carries code CO-97 (bundled), which means its payment is included in the payment for your surgery that same day. The provider cannot bill you separately for it. If a bill for this $450 ever shows up in your name, that would be improper \u2014 CO amounts are the provider's write-off, not yours.",
+      "you_owe": 0.0,
+      "citations": [
+        {
+          "chunk_id": "CODE-CO-97",
+          "quote": "The provider cannot separately bill the member for a bundled service.",
+          "verified": true
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "quote": "A CO adjustment is the provider's responsibility, and it should never appear as an amount the member owes.",
+          "verified": true
+        }
+      ],
+      "retrieval": [
+        {
+          "chunk_id": "CODE-CO-97",
+          "score": 6.411,
+          "matched_terms": [
+            "97",
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "GRP-CO",
+          "score": 2.438,
+          "matched_terms": [
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-45",
+          "score": 2.341,
+          "matched_terms": [
+            "co"
+          ]
+        },
+        {
+          "chunk_id": "CODE-CO-16",
+          "score": 2.046,
+          "matched_terms": [
+            "co"
+          ]
+        }
+      ]
+    }
+  ],
+  "math_findings": [],
+  "actions": [
+    "When the bill from Pacific Coast Surgery Center arrives, compare it to this EOB: your share should be $580, nothing more.",
+    "Check that the bill does NOT include a separate charge for the ultrasound guidance (CPT 76942) \u2014 that service is bundled and cannot be billed to you.",
+    "If the bill lists more than $580, call the surgery center's billing office (number on their bill) and ask them to match it to this EOB before you pay anything.",
+    "Check your plan documents or member portal to confirm your coinsurance percentage matches the $580 share of the $2,900 allowed amount."
+  ],
+  "escalate": false,
+  "escalate_reason": null,
+  "groundedness": {
+    "total_quotes": 4,
+    "verified_quotes": 4,
+    "unverified": []
+  },
+  "usage": {
+    "input_tokens": 4303,
+    "output_tokens": 1153
+  }
+}
