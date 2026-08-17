@@ -174,4 +174,13 @@ Prices: Haiku 4.5 $1/$5 per 1M tokens; Fable 5 $10/$50 per 1M tokens (list, July
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except RuntimeError as exc:
+        # A missing API key is a setup step, not a crash. The agent already
+        # writes a sentence for this case; print it rather than bury it under
+        # a traceback the reader cannot act on.
+        print(file=sys.stderr)
+        print(exc, file=sys.stderr)
+        print(file=sys.stderr)
+        sys.exit(2)
